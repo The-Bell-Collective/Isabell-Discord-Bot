@@ -4,7 +4,7 @@ const { getRoleByName, createAndAssignRole, addGateRole, cleanUpUser } = require
 class GateCommand extends Command {
     constructor() {
         super('gate', {
-            aliases: ['gate'],
+            aliases: ['gate', 'gates'],
             args: [
                 {
                     id: 'action',
@@ -25,7 +25,7 @@ class GateCommand extends Command {
      * @param {String[]} args
      */
     exec(message, args) {
-        const { action, type, code } = args;
+        const { action, code } = args;
         
         if (!action) {
             return;
@@ -34,7 +34,7 @@ class GateCommand extends Command {
             case "open":
                 //message.member.roles.add(getRoleByName(message.guild, "Gates are open"));
                 
-                addGateRole(message.member, "Gates are open", code.replace("<", "").replace(">", ""));
+                addGateRole(message.member, "Gates are open", code);
                 message.delete();
                 break;
             case "close":
