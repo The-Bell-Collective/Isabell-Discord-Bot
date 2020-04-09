@@ -33,7 +33,8 @@ class GateCommand extends Command {
         switch(action){
             case "open":
                 //message.member.roles.add(getRoleByName(message.guild, "Gates are open"));
-                addGateRole(message.member, "Gates are open", code);
+                
+                addGateRole(message.member, "Gates are open", code.replace("<", "").replace(">", ""));
                 message.delete();
                 break;
             case "close":
