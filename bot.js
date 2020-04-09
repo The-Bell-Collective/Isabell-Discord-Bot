@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { AkairoClient, CommandHandler } = require('discord-akairo');
+const { getRoleByName, createAndAssignRole, addGateRole, cleanUpUser } = require('./helpers/roles');
 
 class MyClient extends AkairoClient {
     constructor() {
@@ -17,4 +18,5 @@ class MyClient extends AkairoClient {
 }
 
 const client = new MyClient();
+
 client.login(process.env.DISCORD_TOKEN);
