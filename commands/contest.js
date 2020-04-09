@@ -34,7 +34,8 @@ class ContestCommand extends Command {
                 {
                     "fields": {
                         "Discord Tag": message.member.nickname,
-                        "Image": [{ 'url': submission }]
+                        "Image": [{ 'url': submission }],
+                        "Image URL": submission
                     }
                 }
             ], function (err, records) {
