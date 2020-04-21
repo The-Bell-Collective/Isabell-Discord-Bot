@@ -38,7 +38,11 @@ class DonateCommand extends Command {
             message.member.send("Hi it seems like you are having trouble using the `/donate` command. You can donate the following types: Bells, Crowns or NMTs. Try running the command again like so `/donate bells 99000`");
             return;
         }
-        if(amount.toLowerCase().includes('k') || amount.toLowerCase.includes('m')){
+        if(!amount){
+            return;
+        }
+        console.log(amount);
+        if(amount.toString().toLowerCase().includes('k') || amount.toString().toLowerCase.includes('m')){
             if(amount.toLowerCase().includes('k')){
                 console.log("Noticed a K")
                 if(!!parseInt(amount.toLowerCase().replace('k',''))){
@@ -48,7 +52,7 @@ class DonateCommand extends Command {
                     return;
                 }
             }
-            if(amount.toLowerCase().includes('m')){
+            if(amount.toString().toLowerCase().includes('m')){
                 if(!!parseInt(amount.toLowerCase().replace('m',''))){
                     parsedAmount = parseInt(amount.toLowerCase().replace('m','')) * 1000000;
                 }else{
