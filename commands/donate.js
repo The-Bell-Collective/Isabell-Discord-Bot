@@ -39,10 +39,11 @@ class DonateCommand extends Command {
             return;
         }
         if(!amount){
+            message.delete();
             return;
         }
         console.log(amount);
-        if(amount.toString().toLowerCase().includes('k') || amount.toString().toLowerCase.includes('m')){
+        if(amount.toLowerCase().includes('k') || amount.toLowerCase.includes('m')){
             if(amount.toLowerCase().includes('k')){
                 console.log("Noticed a K")
                 if(!!parseInt(amount.toLowerCase().replace('k',''))){
@@ -52,7 +53,7 @@ class DonateCommand extends Command {
                     return;
                 }
             }
-            if(amount.toString().toLowerCase().includes('m')){
+            if(amount.toLowerCase().includes('m')){
                 if(!!parseInt(amount.toLowerCase().replace('m',''))){
                     parsedAmount = parseInt(amount.toLowerCase().replace('m','')) * 1000000;
                 }else{
