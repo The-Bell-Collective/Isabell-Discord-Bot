@@ -31,6 +31,7 @@ class DonateCommand extends Command {
      * @param {string} args.amount - The amount
      */
     exec(message, { type, amount }) {
+        amount = amount.toString();
         let parsedAmount = 0;
         if (!type) {
             message.delete();
